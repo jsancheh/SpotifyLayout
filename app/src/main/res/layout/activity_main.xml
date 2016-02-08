@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBgRow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.joseluis.spotifylayout.views.SquareLayout
+        android:id="@+id/sqLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlBackground"
+            android:layout_marginTop="@dimen/hToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/sProfile"
+                android:layout_height="@dimen/sProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/marginVeryBig"
+                android:src="@mipmap/profile"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="@dimen/border"/>
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_below="@+id/imgProfile"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/marginMedium"
+                android:textSize="@dimen/textHeaderAuthor"
+                android:text="@string/yo"
+                android:textStyle="normal"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            
+            
+            <Button
+                android:id="@+id/btnFollow"
+                android:layout_below="@+id/tvAuthor"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/marginMedium"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:textColor="@android:color/white"
+                android:text="Seguir"
+                android:background="@drawable/dw_button_white"/>
+
+
+        </RelativeLayout>
+
+    </com.joseluis.spotifylayout.views.SquareLayout>
+
+    <ListView
+        android:id="@+id/sptfListView"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hToolbar"
+        app:theme="@style/CustomActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        app:layout_anchorGravity="bottom|center_horizontal"
+        app:layout_anchor="@id/sqLayout"
+        android:id="@+id/btnShufle"
+        android:layout_width="@dimen/wButton"
+        android:layout_height="@dimen/hButton"
+        android:text="@string/aleatorio"
+        android:textColor="@android:color/white"
+        android:background="@drawable/dw_button_pink"
+        />
+
+
+</android.support.design.widget.CoordinatorLayout>

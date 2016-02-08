@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SpotifyLayout</string>
+    <string name="song">Canción </string>
+    <string name="author">Author </string>
+    <string name="yo">José Luis Sánchez</string>
+    <string name="follow">Seguir</string>
+    <string name="aleatorio">Aleatoria</string>
+
+</resources>
