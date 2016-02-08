@@ -32,12 +32,13 @@ Por último, para posicionar el boton en la parte top del Toolbar nos apoyamos e
 <pre><code>
  //seteamos inicialmente el valor de la segunda posicion de la lista (primera cancion) menos la mitad del alto del boton
  btnShuffle.setY(view.getChildAt(FIRST_POS).getTop() - (btnShuffle.getHeight() / 2));
-
 //si la posicion y + la mitad del boton es menor, es decir, nos hemos pasado porque el valor de la fila que //incrementa la y no es unitaria, depende de la fuerza con la que hagamos el gesto superase el máximo disponible, obligamos a que se quede //fija
 if ((btnShuffle.getY() + (btnShuffle.getHeight() / 2) < toolbar.getHeight())) {
     btnShuffle.setY(toolbar.getHeight() - btnShuffle.getHeight() / 2);
 }
 </pre></code>
+
+Con la formula anterior indicamos que el botón tenga una posición Y máxima.
 
 ![alt tag](https://github.com/jsancheh/SpotifyLayout/blob/master/captura1.png)
 
