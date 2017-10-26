@@ -1,37 +1,25 @@
 language: android
-sudo: false
-
+jdk: oraclejdk8
+# Turn off caching to avoid any caching problems
+cache: false
+# Don't use the Travis Container-Based Infrastructure - See #476
+sudo: true
 env:
   global:
     - ANDROID_API_LEVEL=23
     - ANDROID_BUILD_TOOLS_VERSION=23.0.2
-    - ANDROID_ABI=google_apis/armeabi-v7a
-    - ANDROID_TAG=google_apis
+    - ADB_INSTALL_TIMEOUT=20 # minutes (2 minutes by default - see #247)
 
 android:
   components:
-
-        - platform-tools
-        - tools
-        - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-        - android-$ANDROID_API_LEVEL
-        # For Google Maps API v1
-        - addon-google_apis-google-$ANDROID_API_LEVEL
-        # Google Play Services
-        - extra-google-google_play_services
-        # Support library
-        - extra-android-support
-        # Latest artifacts in local repository
-        - extra-google-m2repository
-        - extra-android-m2repository
-        # Specify at least one system image
-        - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-
-before_script:
-  - echo no | android create avd --force -n test -t android-23 --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-
-
-script: ./gradlew connectedAndroidTest
+    - platform-tools
+    - tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    # Google Play Services
+    - extra-google-google_play_services
+    # Support library
+    - extra-android-support
+    # Latest artifacts in local repository
+    - extra-google-m2repository
+    - extra-android-m2repository
