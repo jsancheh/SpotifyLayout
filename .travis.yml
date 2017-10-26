@@ -27,3 +27,4 @@ android:
 
 script:
   - chmod +x ./gradlew
+  - ./gradlew connectedAndroidTest
