@@ -3,7 +3,7 @@ jdk: oraclejdk8
 # Turn off caching to avoid any caching problems
 cache: false
 # Don't use the Travis Container-Based Infrastructure - See #476
-sudo: true
+sudo: false
 env:
   global:
     - ANDROID_API_LEVEL=23
@@ -27,4 +27,3 @@ android:
 
 script:
   - chmod +x ./gradlew
-  - ./gradlew connectedAndroidTest -PdisablePreDex --stacktrace
