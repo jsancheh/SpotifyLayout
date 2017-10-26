@@ -22,7 +22,11 @@ public class ImageUtils {
      * @param bmp - bitmap
      * @param radius - radio del efecto blut
      */
-    public static void imageBlur(Context context, Bitmap bmp, float radius){
+    public static boolean imageBlur(Context context, Bitmap bmp, float radius){
+
+        if(context == null || bmp == null || radius == 0f){
+            return false;
+        }
 
         final RenderScript rs = RenderScript.create(context);
         final Allocation input = Allocation.createFromBitmap( rs, bmp, Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SCRIPT );
@@ -33,5 +37,6 @@ public class ImageUtils {
         script.forEach(output);
         output.copyTo(bmp);
 
+        return true;
     }
 }
